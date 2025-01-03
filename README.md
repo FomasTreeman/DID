@@ -31,65 +31,9 @@ Navigate to the project directory and install the required Go dependencies:
 go mod tidy
 ```
 
-### Step 4: Set Up Kind Cluster
-Create a `kind` cluster:
+### Step 3: Test with docker-compose
 
-```bash
-kind create cluster --name blockchain-cluster
-```
-
-### Step 5: Deploy to Kubernetes
-Apply the Kubernetes configurations to set up the deployment and services. Make sure you have your YAML files ready (e.g., `bc-deploy.yaml`, `bc-service.yaml`).
-
-```bash
-kubectl apply -f kubernetes/
-```
-
-### Step 6: Access the Application
-To access the application, you can use port forwarding:
-
-```bash
-kubectl port-forward service/blockchain-service 8080:8080 -n blockchain
-```
-
-Now, you can access the application at `http://localhost:8080`.
-
-### Step 7: Access the Kubernetes Dashboard (Optional)
-If you want to manage your cluster visually, you can set up the Kubernetes Dashboard:
-
-1. Deploy the dashboard:
-
-   ```bash
-   kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.1/aio/deploy/recommended.yaml
-   ```
-
-2. Create a service account and cluster role binding:
-
-   ```bash
-   kubectl create serviceaccount dashboard-admin -n kubernetes-dashboard
-   kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:dashboard-admin
-   ```
-
-3. Get the access token:
-
-   ```bash
-   kubectl create token dashboard-admin -n kubernetes-dashboard
-   ```
-
-4. Start the proxy:
-
-   ```bash
-   kubectl proxy
-   ```
-
-5. Access the dashboard at `http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/`.
-
-### Step 8: Clean Up
-When you're done, you can delete the `kind` cluster:
-
-```bash
-kind delete cluster --name blockchain-cluster
-```
+** COMING SOON **
 
 ## Conclusion
 You have now set up the Blockchain DID project. You can create DIDs and manage them using the blockchain. If you have any questions or need further assistance, feel free to reach out!
