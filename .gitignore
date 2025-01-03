@@ -1,0 +1,38 @@
+# Go binaries
+/bin/
+/obj/
+/vendor/
+
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Dependency directories
+vendor/
+
+# IDE and editor files
+*.idea/
+*.vscode/
+*.swp
+*.swo
+*.DS_Store
+
+# Docker files
+*.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Go module files
+go.sum
+go.mod
+
+# Logs
+*.log
+
+# Environment variables
+.env
